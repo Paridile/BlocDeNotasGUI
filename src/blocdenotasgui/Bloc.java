@@ -591,7 +591,7 @@ public class Bloc extends javax.swing.JFrame {
             } 
         } 
     }//GEN-LAST:event_pegarActionPerformed
-
+ 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
         eliminar();
     }//GEN-LAST:event_eliminarActionPerformed
