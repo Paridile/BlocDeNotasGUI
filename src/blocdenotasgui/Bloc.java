@@ -520,6 +520,7 @@ public class Bloc extends javax.swing.JFrame {
     private void copiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copiarActionPerformed
         String seleccionado = ta.getSelectedText();
         if(seleccionado != null){
+            
             StringSelection stringSelection = new StringSelection(seleccionado);
             Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
             clipboard.setContents(stringSelection, null);
@@ -600,6 +601,7 @@ public class Bloc extends javax.swing.JFrame {
             clipboard.getContents(ta);
             String textopegado;
             try {
+                eliminar();
                 textopegado = (String) clipboard.getData(DataFlavor.stringFlavor);
                 ta.insert(textopegado, ta.getCaretPosition());
             } catch (UnsupportedFlavorException | IOException ex) {
@@ -622,6 +624,7 @@ public class Bloc extends javax.swing.JFrame {
     private void fechaYHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaYHoraActionPerformed
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
         LocalDateTime now = LocalDateTime.now();  
+        eliminar();
         ta.insert(dtf.format(now), ta.getCaretPosition());  
     }//GEN-LAST:event_fechaYHoraActionPerformed
 
