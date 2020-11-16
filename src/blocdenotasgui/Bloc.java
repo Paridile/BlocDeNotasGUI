@@ -40,23 +40,23 @@ import javax.swing.JTextArea;
  */
 public class Bloc extends javax.swing.JFrame {
 
-    private static String ruta;
-    private static String archivo;
+    private String ruta;
+    private String archivo;
 
-    private static String getRuta() {
+    private  String getRuta() {
         return ruta;
     }
 
-    private static void setRuta(String ruta) {
-        Bloc.ruta = ruta;
+    private  void setRuta(String ruta) {
+        this.ruta = ruta;
     }
 
-    public static String getArchivo() {
+    public  String getArchivo() {
         return archivo;
     }
 
-    public static void setArchivo(String archivo) {
-        Bloc.archivo = archivo;
+    public void setArchivo(String archivo) {
+        this.archivo = archivo;
     }
     
     @Override
@@ -105,7 +105,7 @@ public class Bloc extends javax.swing.JFrame {
 
         jMenuItem1.setText("jMenuItem1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         ta.setColumns(20);
         ta.setRows(5);
@@ -265,7 +265,7 @@ public class Bloc extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
