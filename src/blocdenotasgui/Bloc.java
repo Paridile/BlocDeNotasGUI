@@ -540,6 +540,8 @@ public class Bloc extends javax.swing.JFrame {
                             "Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
                     if (resultado == JOptionPane.YES_OPTION) {
                         guardar(ta);
+                        setVisible (false);
+                        dispose ();
                     }
                     if(resultado == JOptionPane.NO_OPTION) {
                         setVisible (false);
