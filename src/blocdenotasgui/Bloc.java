@@ -5,13 +5,12 @@
  */
 package blocdenotasgui;
 
-import java.awt.Frame;
-import java.awt.TextArea;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.UnsupportedFlavorException;
+import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -30,7 +29,6 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
@@ -59,6 +57,7 @@ public class Bloc extends javax.swing.JFrame {
         this.archivo = archivo;
     }
     
+    
     @Override
     public void setTitle(String title) {
         super.setTitle(title); //To change body of generated methods, choose Tools | Templates.
@@ -69,6 +68,11 @@ public class Bloc extends javax.swing.JFrame {
     public Bloc() {
         this.setTitle("Sin título: Bloc de notas");
         initComponents();
+        addWindowListener(new WindowAdapter() {
+        public void windowClosing(WindowEvent we) {
+            salir();
+        }
+        });
     }
 
     /**
@@ -105,7 +109,7 @@ public class Bloc extends javax.swing.JFrame {
 
         jMenuItem1.setText("jMenuItem1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         ta.setColumns(20);
         ta.setRows(5);
@@ -265,7 +269,7 @@ public class Bloc extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -523,6 +527,10 @@ public class Bloc extends javax.swing.JFrame {
     }//GEN-LAST:event_copiarActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        salir();
+    }//GEN-LAST:event_salirActionPerformed
+
+    public void salir() {
         int resultado;        
         if(getRuta()!=null){
             try {
@@ -565,8 +573,8 @@ public class Bloc extends javax.swing.JFrame {
             setVisible (false);
             dispose ();
         }
-    }//GEN-LAST:event_salirActionPerformed
-
+    }
+    
     private void acercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acercaDeActionPerformed
         JOptionPane.showMessageDialog(null, "Este programa fue hecho para la clase de Programación visual del\n"
                 + "grupo ICO G-92 de UAEMex por\n\n"
