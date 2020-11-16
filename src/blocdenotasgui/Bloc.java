@@ -524,7 +524,7 @@ public class Bloc extends javax.swing.JFrame {
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         int resultado;        
-        if(getRuta()!="Sin titulo: Bloc de notas"){
+        if(getRuta()!=null){
             try {
                 if(compara(ta.getText())) {
                     resultado = JOptionPane.showConfirmDialog(null,
@@ -534,11 +534,13 @@ public class Bloc extends javax.swing.JFrame {
                         guardar(ta);
                     }
                     if(resultado == JOptionPane.NO_OPTION) {
-                        System.exit(0);
+                        setVisible (false);
+                        dispose ();
                     }
                 }
                 else {
-                    System.exit(0);
+                    setVisible (false);
+                    dispose ();
                 }
             } catch (IOException ex) {
                 Logger.getLogger(Bloc.class.getName()).log(Level.SEVERE, null, ex);
@@ -551,14 +553,17 @@ public class Bloc extends javax.swing.JFrame {
             "Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
             if (resultado == JOptionPane.YES_OPTION) {
                 guardarComo();
-                System.exit(0);
+                setVisible (false);
+                dispose ();
             }
             if(resultado == JOptionPane.NO_OPTION) {
-                System.exit(0);
+                setVisible (false);
+                dispose ();
             }
         }
         else {
-            System.exit(0);
+            setVisible (false);
+            dispose ();
         }
     }//GEN-LAST:event_salirActionPerformed
 
