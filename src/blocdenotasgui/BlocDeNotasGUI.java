@@ -7,15 +7,14 @@ package blocdenotasgui;
 
 /**
  *
- * @author pablo
+ * @author Pablo, 2 amigos y un compañero O_O
  */
 public class BlocDeNotasGUI {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) {        
     }
     
 }
