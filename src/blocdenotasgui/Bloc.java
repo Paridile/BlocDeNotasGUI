@@ -5,13 +5,12 @@
  */
 package blocdenotasgui;
 
-import java.awt.Frame;
-import java.awt.TextArea;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.UnsupportedFlavorException;
+import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -30,7 +29,6 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
@@ -40,24 +38,25 @@ import javax.swing.JTextArea;
  */
 public class Bloc extends javax.swing.JFrame {
 
-    private static String ruta;
-    private static String archivo;
+    private String ruta;
+    private String archivo;
 
-    private static String getRuta() {
+    private  String getRuta() {
         return ruta;
     }
 
-    private static void setRuta(String ruta) {
-        Bloc.ruta = ruta;
+    private  void setRuta(String ruta) {
+        this.ruta = ruta;
     }
 
-    public static String getArchivo() {
+    public  String getArchivo() {
         return archivo;
     }
 
-    public static void setArchivo(String archivo) {
-        Bloc.archivo = archivo;
+    public void setArchivo(String archivo) {
+        this.archivo = archivo;
     }
+    
     
     @Override
     public void setTitle(String title) {
@@ -69,6 +68,11 @@ public class Bloc extends javax.swing.JFrame {
     public Bloc() {
         this.setTitle("Sin título: Bloc de notas");
         initComponents();
+        addWindowListener(new WindowAdapter() {
+        public void windowClosing(WindowEvent we) {
+            salir();
+        }
+        });
     }
 
     /**
@@ -105,7 +109,7 @@ public class Bloc extends javax.swing.JFrame {
 
         jMenuItem1.setText("jMenuItem1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         ta.setColumns(20);
         ta.setRows(5);
@@ -516,6 +520,7 @@ public class Bloc extends javax.swing.JFrame {
     private void copiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copiarActionPerformed
         String seleccionado = ta.getSelectedText();
         if(seleccionado != null){
+            
             StringSelection stringSelection = new StringSelection(seleccionado);
             Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
             clipboard.setContents(stringSelection, null);
@@ -523,8 +528,12 @@ public class Bloc extends javax.swing.JFrame {
     }//GEN-LAST:event_copiarActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        salir();
+    }//GEN-LAST:event_salirActionPerformed
+
+    public void salir() {
         int resultado;        
-        if(getRuta()!="Sin titulo: Bloc de notas"){
+        if(getRuta()!=null){
             try {
                 if(compara(ta.getText())) {
                     resultado = JOptionPane.showConfirmDialog(null,
@@ -532,13 +541,17 @@ public class Bloc extends javax.swing.JFrame {
                             "Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
                     if (resultado == JOptionPane.YES_OPTION) {
                         guardar(ta);
+                        setVisible (false);
+                        dispose ();
                     }
                     if(resultado == JOptionPane.NO_OPTION) {
-                        System.exit(0);
+                        setVisible (false);
+                        dispose ();
                     }
                 }
                 else {
-                    System.exit(0);
+                    setVisible (false);
+                    dispose ();
                 }
             } catch (IOException ex) {
                 Logger.getLogger(Bloc.class.getName()).log(Level.SEVERE, null, ex);
@@ -551,17 +564,20 @@ public class Bloc extends javax.swing.JFrame {
             "Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
             if (resultado == JOptionPane.YES_OPTION) {
                 guardarComo();
-                System.exit(0);
+                setVisible (false);
+                dispose ();
             }
             if(resultado == JOptionPane.NO_OPTION) {
-                System.exit(0);
+                setVisible (false);
+                dispose ();
             }
         }
         else {
-            System.exit(0);
+            setVisible (false);
+            dispose ();
         }
-    }//GEN-LAST:event_salirActionPerformed
-
+    }
+    
     private void acercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acercaDeActionPerformed
         JOptionPane.showMessageDialog(null, "Este programa fue hecho para la clase de Programación visual del\n"
                 + "grupo ICO G-92 de UAEMex por\n\n"
@@ -585,6 +601,7 @@ public class Bloc extends javax.swing.JFrame {
             clipboard.getContents(ta);
             String textopegado;
             try {
+                eliminar();
                 textopegado = (String) clipboard.getData(DataFlavor.stringFlavor);
                 ta.insert(textopegado, ta.getCaretPosition());
             } catch (UnsupportedFlavorException | IOException ex) {
@@ -607,6 +624,7 @@ public class Bloc extends javax.swing.JFrame {
     private void fechaYHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaYHoraActionPerformed
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
         LocalDateTime now = LocalDateTime.now();  
+        eliminar();
         ta.insert(dtf.format(now), ta.getCaretPosition());  
     }//GEN-LAST:event_fechaYHoraActionPerformed
 
