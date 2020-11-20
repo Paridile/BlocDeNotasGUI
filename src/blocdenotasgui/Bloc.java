@@ -332,6 +332,10 @@ public class Bloc extends javax.swing.JFrame {
                 arc += fileContent.get(i);
                 if(i != fileContent.size()-1){
                     arc +="\n";
+                    if(i == fileContent.size())
+                    {
+                        arc += "";
+                    }
                 }
             }
             if(text.equals(arc)) {
