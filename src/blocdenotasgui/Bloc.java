@@ -141,7 +141,7 @@ public class Bloc extends javax.swing.JFrame {
         });
         file.add(ventanaNueva);
 
-        abrir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        abrir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         abrir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Abrir.png"))); // NOI18N
         abrir.setText("Abrir");
         abrir.addActionListener(new java.awt.event.ActionListener() {
