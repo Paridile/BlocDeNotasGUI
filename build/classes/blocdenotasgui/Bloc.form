@@ -11,6 +11,7 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="file">
           <Properties>
+            <Property name="mnemonic" type="int" value="65"/>
             <Property name="text" type="java.lang.String" value="Archivo"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -108,6 +109,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="edicion">
           <Properties>
+            <Property name="mnemonic" type="int" value="101"/>
             <Property name="text" type="java.lang.String" value="Edici&#xf3;n"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -117,7 +119,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="cortar">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+X"/>
+                  <KeyStroke key="Shift+Ctrl+X"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Iconos/Cortar.png"/>
@@ -131,7 +133,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="copiar">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+C"/>
+                  <KeyStroke key="Shift+Ctrl+C"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Iconos/Copiar.png"/>
@@ -145,7 +147,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="pegar">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+V"/>
+                  <KeyStroke key="Shift+Ctrl+V"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Iconos/pegar.png"/>
@@ -159,7 +161,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="eliminar">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="DELETE"/>
+                  <KeyStroke key="Shift+Ctrl+DELETE"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Iconos/Eliminar.png"/>
@@ -175,7 +177,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="seleccionarTodo">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+E"/>
+                  <KeyStroke key="Shift+Ctrl+E"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Iconos/SeleccionarTodo.png"/>
@@ -204,6 +206,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="ayuda">
           <Properties>
+            <Property name="mnemonic" type="int" value="121"/>
             <Property name="text" type="java.lang.String" value="Ayuda"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>

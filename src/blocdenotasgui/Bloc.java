@@ -68,6 +68,7 @@ public class Bloc extends javax.swing.JFrame {
     public Bloc() {
         this.setTitle("Sin título: Bloc de notas");
         initComponents();
+        setLocationRelativeTo(null); 
         addWindowListener(new WindowAdapter() {
         public void windowClosing(WindowEvent we) {
             salir();
@@ -115,6 +116,7 @@ public class Bloc extends javax.swing.JFrame {
         ta.setRows(5);
         jScrollPane1.setViewportView(ta);
 
+        file.setMnemonic('A');
         file.setText("Archivo");
         file.setToolTipText("");
         file.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -182,10 +184,11 @@ public class Bloc extends javax.swing.JFrame {
 
         jMenuBar1.add(file);
 
+        edicion.setMnemonic('e');
         edicion.setText("Edición");
         edicion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        cortar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
+        cortar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         cortar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Cortar.png"))); // NOI18N
         cortar.setText("Cortar");
         cortar.addActionListener(new java.awt.event.ActionListener() {
@@ -195,7 +198,7 @@ public class Bloc extends javax.swing.JFrame {
         });
         edicion.add(cortar);
 
-        copiar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        copiar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         copiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Copiar.png"))); // NOI18N
         copiar.setText("Copiar");
         copiar.addActionListener(new java.awt.event.ActionListener() {
@@ -205,7 +208,7 @@ public class Bloc extends javax.swing.JFrame {
         });
         edicion.add(copiar);
 
-        pegar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
+        pegar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         pegar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/pegar.png"))); // NOI18N
         pegar.setText("Pegar");
         pegar.addActionListener(new java.awt.event.ActionListener() {
@@ -215,7 +218,7 @@ public class Bloc extends javax.swing.JFrame {
         });
         edicion.add(pegar);
 
-        eliminar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
+        eliminar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Eliminar.png"))); // NOI18N
         eliminar.setText("Eliminar");
         eliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -226,7 +229,7 @@ public class Bloc extends javax.swing.JFrame {
         edicion.add(eliminar);
         edicion.add(jSeparator3);
 
-        seleccionarTodo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        seleccionarTodo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         seleccionarTodo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/SeleccionarTodo.png"))); // NOI18N
         seleccionarTodo.setText("Seleccionar todo");
         seleccionarTodo.addActionListener(new java.awt.event.ActionListener() {
@@ -248,6 +251,7 @@ public class Bloc extends javax.swing.JFrame {
 
         jMenuBar1.add(edicion);
 
+        ayuda.setMnemonic('y');
         ayuda.setText("Ayuda");
         ayuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
