@@ -329,7 +329,14 @@ public class Bloc extends javax.swing.JFrame {
             List<String> fileContent = new ArrayList<>(Files.readAllLines(Paths.get(getRuta()), StandardCharsets.UTF_8));
             String arc="";
             for (int i = 0; i < fileContent.size(); i++) {
-                arc += fileContent.get(i) + "\n";
+                arc += fileContent.get(i);
+                if(i != fileContent.size()-1){
+                    arc +="\n";
+                    if(i == fileContent.size())
+                    {
+                        arc += "";
+                    }
+                }
             }
             if(text.equals(arc)) {
                 flag = false;
@@ -411,11 +418,12 @@ public class Bloc extends javax.swing.JFrame {
         
     private void abrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirActionPerformed
         Scanner entrada = null;
+        Scanner aux = null;
         JFileChooser fileChooser = new JFileChooser();
         String rutaAux = getRuta();
+        int lineas=0,linea=0;
         int resultado=0;
         try {
-
                     if(getRuta() == null && ta.getText().length() > 0){
                         resultado = JOptionPane.showConfirmDialog(null,
                         "Desea guardar los cambios de este documento?",
@@ -423,8 +431,7 @@ public class Bloc extends javax.swing.JFrame {
                         if (resultado == JOptionPane.YES_OPTION) {
                             guardar(ta);           
                         } 
-                    }
-                
+                    }                    
                     else if(compara(ta.getText())) {
                     resultado = JOptionPane.showConfirmDialog(null,
                     "Desea guardar los cambios de este documento?",
@@ -444,10 +451,18 @@ public class Bloc extends javax.swing.JFrame {
             }
             else{
                 entrada = new Scanner(f);
+                aux = new Scanner(f);
                 ta.setText("");
+                while (aux.hasNext()) {
+                    aux.nextLine();  
+                    lineas++;
+                    
+                }
                 while (entrada.hasNext()) {
                     ta.append(entrada.nextLine());
-                    ta.append("\n");
+                    if(linea!=lineas-1){
+                    ta.append("\n");}
+                    linea++;
                 }
             }
         }}
